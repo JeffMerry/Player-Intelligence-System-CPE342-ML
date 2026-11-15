@@ -1,0 +1,38 @@
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+*.egg-info/
+
+# Local datasets, generated models and predictions; keep scaffold documentation
+/data/**
+!/data/**/
+!/data/**/README.md
+!/data/**/.gitkeep
+/models/**
+!/models/**/
+!/models/**/README.md
+!/models/**/.gitkeep
+/submissions/**
+!/submissions/**/
+!/submissions/**/README.md
+!/submissions/**/.gitkeep
+
+# Secrets and local settings
+.env
+.env.*
+!.env.example
+kaggle.json
+.aws/
+*.pem
+*.key
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+.idea/

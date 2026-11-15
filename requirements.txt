@@ -1,0 +1,2 @@
+# Shared dependencies: add packages with explicit versions when selected.
+# Task-specific dependencies belong in TaskN/requirements.txt.
