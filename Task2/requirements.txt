@@ -1,1 +1,20 @@
-# Add pinned Task 2 dependencies when selected.
+# For task-2-player-segment-classification.ipynb
+# Versions below are recorded in the notebook's saved environment output.
+# That run used Python 3.13.3; the local environment has not been changed.
+
+numpy==2.5.4
+pandas==3.1.1
+scipy==1.18.1
+scikit-learn==1.9.1
+matplotlib==3.11.2
+lightgbm==4.7.0
+catboost==1.2.10
+xgboost==3.4.1
+optuna==5.0.0
+nbformat==5.11.1
+nbclient==0.11.0
+ipykernel==7.4.0
+
+# Direct imports whose versions were not recorded in the notebook.
+ipython
+joblib
