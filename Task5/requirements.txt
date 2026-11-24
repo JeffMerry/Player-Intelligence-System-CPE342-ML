@@ -1,1 +1,6 @@
-# Add pinned Task 5 dependencies when selected.
+# เวอร์ชันที่ใช้รัน notebook จริง (Python 3.13)
+numpy==2.5.4
+pandas==3.1.1
+scikit-learn==1.9.1
+matplotlib==3.11.2
+jupyter
