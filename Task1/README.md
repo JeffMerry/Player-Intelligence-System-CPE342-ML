@@ -8,10 +8,8 @@
 - โมเดลและไฟล์ตรวจสอบ: `../models/Task1/`
 - สรุปการรัน: `../reports/experiments/task1_run_metadata.json`
 
-## ที่มา
+## คะแนน Kaggle
 
-สูตรมาจากงาน Task 1 ใน [i3artuf/CPE342-kaggle-competition](https://github.com/i3artuf/CPE342-kaggle-competition)
-(`task-1-anti-cheatdetection.ipynb`, `scripts/experiment_task1_augmentation_small_gain.py`, `scripts/make_task1_threshold_probe.py`)
 คอลัมน์ Task 1 นี้อยู่ใน submission ที่ได้ Kaggle public **0.74155** (15 พ.ย. 2026) และทุก submission ต่อมาจนถึง best **0.82618** (17 พ.ย. 2026)
 
 ## วิธีรัน

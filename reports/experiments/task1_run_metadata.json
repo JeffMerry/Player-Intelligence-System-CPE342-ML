@@ -143,7 +143,6 @@
     "2026-11-15 probe": 0.74155,
     "best 2026-11-17": 0.82618
   },
-  "origin": "Recipe from i3artuf/CPE342-kaggle-competition: task-1-anti-cheatdetection.ipynb, scripts/experiment_task1_augmentation_small_gain.py, scripts/make_task1_threshold_probe.py",
   "validation_note": "Audit excluded from current candidate/threshold/rounds selection; this dataset was previously explored. No test labels used.",
   "missingness_note": "Fixed 10% independent observed-value masking; no test rows or statistics used for training, augmentation, or model selection. Masking cannot simulate reduced missingness.",
   "merge_contract": "submissions/task1.csv id,task1; test row i maps to ANS{i:05d}."
