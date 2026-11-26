@@ -118,13 +118,21 @@ two-stage ใช้ classifier 600 trees และ regressors 900 trees คง�
 - แถวที่ขาดข้อมูล 4 ช่องขึ้นไปมี MAE 3,880 บาท เทียบกับ 2,596 บาทของแถวที่ข้อมูลครบ
 - Permutation importance (two-stage, dev fold): `history_with_transaction_fallback` +7,224 บาท, `vip_spending_interaction` +1,056, `segment` +456
 
-## การทดลองนอก notebook
+## Scratch MLP blend (notebook ขั้น 14.2)
 
-คอลัมน์ Task 3 ในไฟล์ที่ส่ง Kaggle รอบล่าสุดผสม ensemble นี้ 75% กับ MLP (L1 loss บนหน่วยบาท) 25%
-บน dev OOF ผลผสมนี้ยก NMAE จาก 0.785820 เป็น 0.787064 (ดีขึ้นทั้ง 3 folds)
-โค้ด MLP ไม่ได้อยู่ใน repo นี้ `submissions/task3.csv` จาก notebook จึงเป็น ensemble แบบ tree ล้วน
+โมเดลสุดท้ายผสม tree ensemble 75% กับ scratch MLP (L1 loss บนหน่วยบาท) 25% น้ำหนักตรึงไว้ก่อนดูผล
 
-การทดลองอื่นที่ทำแล้วแต่ไม่ได้เลือก เพราะผลดีขึ้นน้อยกว่าเกณฑ์ 0.002 NMAE:
+| Fold | MLP epochs | Tree NMAE | Blend NMAE | Gain |
+|---|---:|---:|---:|---:|
+| 0 | 17 | 0.782430 | 0.784092 | +0.001663 |
+| 1 | 23 | 0.790354 | 0.790760 | +0.000406 |
+| 2 | 13 | 0.784729 | 0.786376 | +0.001647 |
+| รวม | | 0.785820 | 0.787064 | +0.001244 |
+
+Locked holdout (เช็คซ้ำ ไม่ใช่การวัดอิสระ): tree 0.789033 → blend 0.789418 ใช้ 12 epochs ตอนฝึกบน train ทั้งหมด
+`submissions/task3.csv` ตรงกับคอลัมน์ Task 3 ของไฟล์ที่ได้ Kaggle public 0.82618 ทุกแถว
+
+การทดลองนอก notebook ที่ทำแล้วแต่ไม่ได้เลือก เพราะผลดีขึ้นน้อยกว่าเกณฑ์ 0.002 NMAE:
 - เปลี่ยนการ stop จาก log-MAE เป็น THB-NMAE: +0.00044
 - Conditional stacking ด้วย L1: +0.00011
 - Calibrate spender probability: −0.00001
