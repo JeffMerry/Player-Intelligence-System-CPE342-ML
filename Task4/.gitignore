@@ -1,0 +1,27 @@
+# Generated artifacts restored from the Google Drive ZIP.
+/checkpoints/**
+!/checkpoints/**/
+!/checkpoints/README.md
+/training_assets/**
+!/training_assets/**/
+!/training_assets/README.md
+/examples/images/
+/examples/*.csv
+/results/task4.csv
+/results/*.npz
+/outputs/
+/dist/
+
+# Local Python environments, notebook backups, caches and secrets.
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+.env
+.env.*
+kaggle.json

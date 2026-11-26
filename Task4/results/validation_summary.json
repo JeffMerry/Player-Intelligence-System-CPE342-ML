@@ -1,0 +1,36 @@
+{
+  "scores": [
+    {
+      "scope": "inner selection (before refit)",
+      "macro_f1": 0.9887623315174263,
+      "val_loss": 0.03960037093103577
+    },
+    {
+      "scope": "reused outer development (before refit)",
+      "macro_f1": 0.9882345069508871,
+      "val_loss": 0.04781762821497811
+    },
+    {
+      "scope": "outer ResNet18 reference",
+      "macro_f1": 0.9631383592615694,
+      "val_loss": 0.132438457828213
+    }
+  ],
+  "members": [
+    {
+      "name": "dinov2_base",
+      "weight": 0.5,
+      "tta": false
+    },
+    {
+      "name": "convnext_tiny",
+      "weight": 0.5,
+      "tta": true
+    }
+  ],
+  "refit_epochs": 8,
+  "refit_rows": 31546,
+  "test_rows": 25889,
+  "validation_score_of_refit": null,
+  "kaggle_score": null
+}

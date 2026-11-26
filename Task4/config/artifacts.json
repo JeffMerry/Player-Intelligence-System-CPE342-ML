@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "archive_name": "Task4_artifacts.zip",
+  "archive_sha256": "0398bf816322938b5b26236b700b03a779780eff39a61571966564ebdedb93bd",
+  "download_url": "https://drive.google.com/drive/folders/1J7OTKaxK3lW-8vFKFq-Dkxw8OGuoY9or?usp=sharing",
+  "files": {
+    "checkpoints/convnext_tiny.pt": "815cf17e363d692c1775331e3e469675e2c39a04620f7421473ca4168d2d066e",
+    "checkpoints/dinov2_base.pt": "e9745511ef237f3fcb5e8dd201a98bc5fc307f6fc8edf51721c6825ae63abbb4",
+    "examples/expected_predictions.csv": "ff104b13f880ddaed755bdfb188f5cc70f289a9508b8968757370b25973906a8",
+    "examples/images/s07kzz5.jpg": "da63b32be47c94be5ee6a0e09ca03ce7c549d777a6a77cf78ed9c027beb9f9c5",
+    "examples/images/s2v4jw3.jpg": "a58b33ec4aecb23933a6d351b354ea1a7fdc7d40f3614d0588b394751cd62582",
+    "examples/images/sjqyfwc.jpg": "44cbc486fddd2c55e58d27d10ea9ad835d93c0cbc41d3257569c9eccb225cfa2",
+    "examples/images/soqvor4.jpg": "cf288cbc62bd71d645cb39151a871a89c0cbf78ea303f9e80d739cf1100c70f2",
+    "examples/images/sr69rma.jpg": "0185d9bb3c19baaf0aed1af55b8a1cd3d1c64d4b97ae7cd1a7a10fca8a388291",
+    "examples/input.csv": "1180feaab6dfd06175a49db9d4e0b52872c889a439984c9eccb906af5f4d51a1",
+    "examples/sample.csv": "c2b54257964eb042a82d65b09151169c7ba8a0aad3d51bfe79ec687fe8a1a82c",
+    "results/outer_validation.npz": "49a5cf0130a1812eb26d9bdb3ad276781e8e9aebae5e7e33d2e7be55631b0026",
+    "results/task4.csv": "8e0c0e7c75bc6415735b23e8eabc4720ce53afc524c4ef17c14f379362fa060f",
+    "training_assets/experiment.json": "dff150a50a11024173bb2d2ad4c21322c9554b49af773e567301f364ed660038",
+    "training_assets/partitions.csv": "29583300f54c3c8b72abe356b0f3df8e295409ec061c507d1191a5e15467cc95",
+    "training_assets/reference_baseline/best_validation.npz": "b51a70a36093747e43785a4a4d9e7b27b0a349bec93cbcceaa648a4d29d16ca5",
+    "training_assets/reference_baseline/run_info.json": "2b5fb3ce61660fab45e2c0f6c62d0a66989d33f29a0de0d383e19a303103d6d9",
+    "training_assets/sample_submission.csv": "e8d39f0a2295b6b5ea1ef98cbb7bd224c843cf21c5135a07506f5cde163b893d",
+    "training_assets/split_manifest.csv": "9d69040b65ccb390cbace5a0fd0bba606742db20aeede2c9e6bebe078a506a86",
+    "training_assets/split_metadata.json": "36db3653720f7dd0a63c9e34f3d1799e18c0dfae508c38c400b04c703aae0539"
+  }
+}

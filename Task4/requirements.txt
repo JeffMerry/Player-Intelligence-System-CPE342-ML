@@ -1,22 +1,24 @@
-# Task 4 environment used for the recorded experiments: Python 3.12.4, Windows.
-# Install from the project root:
-#   python -m pip install -r Task4/requirements.txt
-# NVIDIA CUDA 12.8 wheels; requires a compatible NVIDIA driver.
---extra-index-url https://download.pytorch.org/whl/cu128
-
-# Training and inference
-torch==2.9.1+cu128
-torchvision==0.24.1+cu128
+# Task 4: Python 3.12; notebook, inference, training and verification dependencies.
+# Install: python -m pip install -r Task4/requirements.txt
+# Clone the GitHub source and restore Task4_artifacts.zip separately (see README).
+# Restoring the ZIP uses only the Python standard library; no extra dependency is needed.
+# Keep the backend suffix unpinned so an installed 2.9.1+cu128 or 2.9.1+cpu satisfies this file.
+# To choose a backend explicitly, install torch/torchvision from the appropriate
+# official PyTorch index first, then install this requirements file (see README).
+torch==2.9.1
+torchvision==0.24.1
 numpy==2.2.6
 pandas==2.3.3
 Pillow==12.1.0
 ImageHash==4.3.2
 scikit-learn==1.8.0
 matplotlib==3.10.8
-
-# Notebook kernel, display, and notebook validation
+timm==1.0.30
+huggingface-hub==0.36.0
+safetensors==0.6.2
+tqdm==4.67.1
 IPython==9.9.0
 ipykernel==7.1.0
 nbformat==5.10.4
-
-# Direct dependencies are pinned; this file is not a full transitive lockfile.
+pytest==9.0.2
+nbclient==0.10.4

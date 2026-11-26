@@ -1,0 +1,213 @@
+{
+  "selected": {
+    "members": [
+      {
+        "name": "dinov2_base",
+        "weight": 0.5,
+        "tta": false
+      },
+      {
+        "name": "convnext_tiny",
+        "weight": 0.5,
+        "tta": true
+      }
+    ],
+    "macro_f1": 0.9887623315174263,
+    "val_loss": 0.03960037093103577
+  },
+  "inner_candidates": [
+    {
+      "members": [
+        {
+          "name": "dinov2_base",
+          "weight": 1.0,
+          "tta": false
+        }
+      ],
+      "macro_f1": 0.9884108363551825,
+      "val_loss": 0.0449166535714901
+    },
+    {
+      "members": [
+        {
+          "name": "convnext_tiny",
+          "weight": 1.0,
+          "tta": true
+        }
+      ],
+      "macro_f1": 0.9770281312772949,
+      "val_loss": 0.08519579481160516
+    },
+    {
+      "members": [
+        {
+          "name": "dinov2_small",
+          "weight": 1.0,
+          "tta": false
+        }
+      ],
+      "macro_f1": 0.9735968911416947,
+      "val_loss": 0.07154832204730822
+    },
+    {
+      "members": [
+        {
+          "name": "swin_t",
+          "weight": 1.0,
+          "tta": true
+        }
+      ],
+      "macro_f1": 0.973150615939679,
+      "val_loss": 0.07470831288163537
+    },
+    {
+      "members": [
+        {
+          "name": "resnet18",
+          "weight": 1.0,
+          "tta": true
+        }
+      ],
+      "macro_f1": 0.9512517334913788,
+      "val_loss": 0.13884522752956022
+    },
+    {
+      "members": [
+        {
+          "name": "dinov2_base",
+          "weight": 0.5,
+          "tta": false
+        },
+        {
+          "name": "convnext_tiny",
+          "weight": 0.5,
+          "tta": true
+        }
+      ],
+      "macro_f1": 0.9887623315174263,
+      "val_loss": 0.03960037093103577
+    },
+    {
+      "members": [
+        {
+          "name": "dinov2_base",
+          "weight": 0.3333333333333333,
+          "tta": false
+        },
+        {
+          "name": "convnext_tiny",
+          "weight": 0.3333333333333333,
+          "tta": true
+        },
+        {
+          "name": "dinov2_small",
+          "weight": 0.3333333333333333,
+          "tta": false
+        }
+      ],
+      "macro_f1": 0.9857986884926586,
+      "val_loss": 0.038254211150806704
+    },
+    {
+      "members": [
+        {
+          "name": "dinov2_base",
+          "weight": 0.25,
+          "tta": false
+        },
+        {
+          "name": "convnext_tiny",
+          "weight": 0.25,
+          "tta": true
+        },
+        {
+          "name": "dinov2_small",
+          "weight": 0.25,
+          "tta": false
+        },
+        {
+          "name": "swin_t",
+          "weight": 0.25,
+          "tta": true
+        }
+      ],
+      "macro_f1": 0.98736038790831,
+      "val_loss": 0.03674608549909031
+    },
+    {
+      "members": [
+        {
+          "name": "dinov2_base",
+          "weight": 0.2,
+          "tta": false
+        },
+        {
+          "name": "convnext_tiny",
+          "weight": 0.2,
+          "tta": true
+        },
+        {
+          "name": "dinov2_small",
+          "weight": 0.2,
+          "tta": false
+        },
+        {
+          "name": "swin_t",
+          "weight": 0.2,
+          "tta": true
+        },
+        {
+          "name": "resnet18",
+          "weight": 0.2,
+          "tta": true
+        }
+      ],
+      "macro_f1": 0.9852884629871606,
+      "val_loss": 0.0449376880721056
+    },
+    {
+      "members": [
+        {
+          "name": "dinov2_base",
+          "weight": 0.5,
+          "tta": false
+        },
+        {
+          "name": "dinov2_small",
+          "weight": 0.5,
+          "tta": false
+        }
+      ],
+      "macro_f1": 0.985397207068037,
+      "val_loss": 0.04072992629393587
+    }
+  ],
+  "outer_reference": {
+    "macro_f1": 0.9631383592615694,
+    "val_loss": 0.132438457828213
+  },
+  "outer_candidate": {
+    "macro_f1": 0.9882345069508871,
+    "val_loss": 0.04781762821497811
+  },
+  "outer_gain": 0.02509614768931767,
+  "bootstrap": {
+    "p_gain_nonpositive": 0.0,
+    "gain_ci95": [
+      0.01987306842452092,
+      0.03016457939195474
+    ],
+    "samples": 2000,
+    "unit": "duplicate_group",
+    "note": "Descriptive resampling on reused development outer; not independent test evidence."
+  },
+  "passes": true,
+  "data_identity": {
+    "train_csv_sha256": "328c6d4affd925d0f562113c54e208c84ad834f6ffa6421766232d42e1bdef32",
+    "test_csv_sha256": "e04403485355a19e78c08422d7e25854fabf320538346038e18ec0d189595344",
+    "split_manifest_sha256": "9d69040b65ccb390cbace5a0fd0bba606742db20aeede2c9e6bebe078a506a86",
+    "partition_sha256": "29dd3910908453004ebbb695e7ee6288885157276f1dc3ae3ffa83503e8c82ba",
+    "outer_note": "Existing development holdout has been inspected/reused; not a new independent test."
+  },
+  "outer_note": "Existing development holdout has been inspected/reused; not a new independent test."
+}
