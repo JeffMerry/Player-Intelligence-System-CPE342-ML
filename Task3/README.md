@@ -15,10 +15,10 @@
 pip install -r Task3/requirements.txt
 ```
 
-เปิด notebook ด้วย kernel ที่ติดตั้ง requirements แล้ว แล้วกด **Restart → Run All** (CPU ประมาณ 13 นาที) รันได้ทั้งจาก root หรือจาก `Task3/notebooks/`
+เปิด notebook ด้วย kernel ที่ติดตั้ง requirements แล้ว แล้วกด **Restart → Run All** (CPU ประมาณ 17 นาที รวม MLP) รันได้ทั้งจาก root หรือจาก `Task3/notebooks/`
 notebook หา root ของ repo จาก `TEAM_GUIDE.md` และตรวจขนาดข้อมูลด้วย assert ก่อนเริ่ม
 
-ทดสอบแล้วด้วย Python 3.14.10 ได้ผลตรงกับรอบเดิมที่รันด้วย Python 3.13.3 ทุกค่า เวอร์ชันไลบรารีระบุไว้ใน `requirements.txt`
+ทดสอบแล้วด้วย Python 3.14.10 และ 3.13.3 ได้ผลตรงกันทุกค่า (outputs ที่บันทึกใน notebook รันด้วย 3.13.3) เวอร์ชันไลบรารีระบุไว้ใน `requirements.txt`
 
 ## สูตรที่ใช้
 
@@ -29,8 +29,10 @@ notebook หา root ของ repo จาก `TEAM_GUIDE.md` และตรว
 | โมเดลที่เทียบ | 17 แบบ: Dummy, Ridge, ElasticNet, RF, ExtraTrees, LightGBM/XGBoost/CatBoost (L1), log-target, Tweedie, two-stage |
 | Tuning | Optuna TPE 20 trials บน LightGBM L1 |
 | Validation | Stratified 3-fold CV บน dev → OOF predictions |
-| โมเดลสุดท้าย | weighted ensemble: two-stage mixture median 0.51 + LightGBM Optuna 0.39 + LightGBM raw 0.10 |
-| Final fit | train ทั้งหมด 104,000 แถว จำนวนรอบตรึงจาก development, คำทำนายไม่ต่ำกว่า 0 |
+| Tree ensemble | weighted ensemble: two-stage mixture median 0.51 + LightGBM Optuna 0.39 + LightGBM raw 0.10 |
+| Scratch MLP | 186 inputs (62 features + signed log1p + missing indicators), 3×128 ReLU, dropout 0.1, L1 loss บน y/10,000, AdamW, seed 20261116, CPU deterministic; จำนวน epoch เลือกด้วย inner early stopping (dev ได้ 12) |
+| **โมเดลสุดท้าย** | **tree ensemble 75% + MLP 25%** (น้ำหนักตรึงไว้ก่อนดูผล ไม่ได้จูน) |
+| Final fit | train ทั้งหมด 104,000 แถว จำนวนรอบ/epoch ตรึงจาก development, คำทำนายไม่ต่ำกว่า 0 |
 
 **Two-stage mixture median:** classifier ทำนายความน่าจะเป็น p ที่จะจ่าย และ quantile regressors (0.05–0.70) ทำนายยอดของคนที่จ่าย
 ถ้า p ≤ 0.5 ทาย 0 บาท ถ้าไม่ใช่ทาย quantile ที่ระดับ `1 − 0.5/p` ซึ่งเป็น median ของการแจกแจงผสม เหมาะกับ metric แบบ absolute error
@@ -39,18 +41,18 @@ notebook หา root ของ repo จาก `TEAM_GUIDE.md` และตรว
 
 | รายการ | ผล |
 |---|---:|
-| Dev OOF MAE ของ ensemble (3-fold, 88,400 แถว) | 2,860.76 บาท (NMAE 0.78582) |
-| **Locked holdout NMAE** (15,600 แถว, ไม่ใช้เลือกโมเดล) | **0.78903** |
+| Dev OOF MAE ของ tree ensemble (3-fold, 88,400 แถว) | 2,860.76 บาท (NMAE 0.785820) |
+| **Dev OOF ของ blend 75/25** (ดีขึ้นทุก fold) | **2,839.66 บาท (NMAE 0.787064)** |
+| **Locked holdout NMAE** ของ tree ensemble (15,600 แถว, ไม่ใช้เลือกโมเดล) | **0.78903** |
+| Locked holdout ของ blend 75/25 (เช็คซ้ำหลังเปิด holdout แล้ว) | NMAE 0.78942, MAE 2,801.63 บาท |
 | Locked holdout MAE / RMSE / R² | 2,808.12 บาท / 13,297.09 บาท / 0.8104 |
 | Holdout MAE bootstrap 95% | 2,607–3,010 บาท |
 | Baseline ทาย median ทุกคน (dev validation) | MAE 10,502 บาท |
 
 ## คะแนน Kaggle
 
+`submissions/task3.csv` จาก notebook นี้ตรงกับคอลัมน์ Task 3 ในไฟล์ที่ส่ง Kaggle และได้คะแนนรวม public **0.82618** ทุกแถว (ต่างกันไม่เกิน 1e-8 บาท ซึ่งมาจากการปัดทศนิยม 8 หลักตอนเขียน CSV)
 Kaggle รายงานเป็นคะแนนรวม 5 tasks จึงไม่ทราบคะแนน Task 3 อย่างเดียว
-
-notebook นี้สร้าง ensemble แบบ tree ล้วน ส่วนคอลัมน์ Task 3 ในไฟล์ที่ส่ง Kaggle รอบล่าสุดผสม ensemble นี้ 75% กับ MLP (L1 loss บนหน่วยบาท) 25%
-MLP ฝึกแยกนอก notebook ผลผสมนี้ยก dev OOF NMAE จาก 0.785820 เป็น 0.787064 ดังนั้น `submissions/task3.csv` จาก notebook นี้จึงไม่ใช่คอลัมน์เดียวกับไฟล์ที่ส่งล่าสุด
 
 ## การจับคู่ ID
 
