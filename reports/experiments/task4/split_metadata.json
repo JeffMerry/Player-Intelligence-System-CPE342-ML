@@ -1,0 +1,19 @@
+{
+  "seed": 342,
+  "method": "StratifiedGroupKFold",
+  "n_splits": 5,
+  "selected_fold": 0,
+  "phash_radius": 4,
+  "dhash_radius": 8,
+  "fit_images": 25236,
+  "validation_images": 6310,
+  "train_csv_sha256": "328c6d4affd925d0f562113c54e208c84ad834f6ffa6421766232d42e1bdef32",
+  "split_manifest_sha256": "9d69040b65ccb390cbace5a0fd0bba606742db20aeede2c9e6bebe078a506a86",
+  "versions": {
+    "pandas": "2.3.3",
+    "numpy": "2.2.6",
+    "scikit-learn": "1.8.0",
+    "ImageHash": "4.3.2",
+    "Pillow": "12.1.0"
+  }
+}

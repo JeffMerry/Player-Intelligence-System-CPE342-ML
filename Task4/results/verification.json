@@ -1,0 +1,23 @@
+{
+  "relocated_cpu_inference": "passed",
+  "example_rows": 5,
+  "predictions_match_archived_csv": true,
+  "original_project_access_blocked": true,
+  "train_split_access_blocked_for_cli": true,
+  "pretrained_downloads_blocked": true,
+  "training_calls_blocked": true,
+  "inference_notebook_run_all": "passed",
+  "training_notebook_review_run_all": "passed",
+  "new_training_performed": false,
+  "environment_note": "Existing Python environment; CPU execution tested, fresh CPU-wheel installation not tested.",
+  "unit_tests": {
+    "passed": 31,
+    "new_training_performed": false
+  },
+  "canonical_layout": {
+    "task_directory": "Task4",
+    "artifact_restore_idempotent_files": 19,
+    "git_bound_files_over_100_mib": 0,
+    "source_lf_attributes": true
+  }
+}

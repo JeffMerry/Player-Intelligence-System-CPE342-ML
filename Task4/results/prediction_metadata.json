@@ -1,0 +1,34 @@
+{
+  "members": [
+    {
+      "name": "dinov2_base",
+      "weight": 0.5,
+      "tta": false
+    },
+    {
+      "name": "convnext_tiny",
+      "weight": 0.5,
+      "tta": true
+    }
+  ],
+  "checkpoint_sha256": {
+    "dinov2_base": "e9745511ef237f3fcb5e8dd201a98bc5fc307f6fc8edf51721c6825ae63abbb4",
+    "convnext_tiny": "815cf17e363d692c1775331e3e469675e2c39a04620f7421473ca4168d2d066e"
+  },
+  "csv_sha256": "8e0c0e7c75bc6415735b23e8eabc4720ce53afc524c4ef17c14f379362fa060f",
+  "data_identity": {
+    "train_csv_sha256": "328c6d4affd925d0f562113c54e208c84ad834f6ffa6421766232d42e1bdef32",
+    "test_csv_sha256": "e04403485355a19e78c08422d7e25854fabf320538346038e18ec0d189595344",
+    "split_manifest_sha256": "9d69040b65ccb390cbace5a0fd0bba606742db20aeede2c9e6bebe078a506a86",
+    "partition_sha256": "29dd3910908453004ebbb695e7ee6288885157276f1dc3ae3ffa83503e8c82ba",
+    "outer_note": "Existing development holdout has been inspected/reused; not a new independent test."
+  },
+  "rows": 25889,
+  "full_train_refit": true,
+  "development_outer_metrics": {
+    "macro_f1": 0.9882345069508871,
+    "val_loss": 0.04781762821497811
+  },
+  "validation_score_of_refit": null,
+  "kaggle_score": null
+}
