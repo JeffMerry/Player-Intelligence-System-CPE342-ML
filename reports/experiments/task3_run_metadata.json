@@ -1,0 +1,242 @@
+{
+  "metric": "NMAE = 1 / (1 + sum(abs(y - prediction)) / sum(y)); higher is better",
+  "metric_source": "User-provided project slides, pages 19 and 25",
+  "selection_objective": "original-scale MAE; equivalent ranking to NMAE on the same rows",
+  "seed": 342,
+  "folds": 3,
+  "optuna_trials": 20,
+  "threads": 8,
+  "selected_strategy": "weighted",
+  "shortlist": [
+    "two_stage_mixture_median",
+    "lightgbm_optuna_l1",
+    "lightgbm_fe_l1",
+    "lightgbm_raw_l1"
+  ],
+  "active_models": [
+    "two_stage_mixture_median",
+    "lightgbm_optuna_l1",
+    "lightgbm_fe_l1",
+    "lightgbm_raw_l1"
+  ],
+  "weights": [
+    0.5098232028267429,
+    0.3939126686060154,
+    1.4298641499226235e-18,
+    0.0962641285672416
+  ],
+  "best_single": "two_stage_mixture_median",
+  "rounds": {
+    "two_stage_mixture_median": 990,
+    "lightgbm_optuna_l1": 2406,
+    "lightgbm_fe_l1": 1976,
+    "lightgbm_raw_l1": 1979
+  },
+  "optuna_best_params": {
+    "engineered": true,
+    "learning_rate": 0.02444601900891129,
+    "num_leaves": 61,
+    "min_child_samples": 73,
+    "colsample_bytree": 0.8708656134137285,
+    "subsample": 0.7595440844820583,
+    "reg_alpha": 0.0011853452105852257,
+    "reg_lambda": 0.026563516033398103,
+    "max_bin": 511
+  },
+  "selected_oof_mae": 2860.7602888829488,
+  "selected_oof_nmae": 0.7858202695460894,
+  "locked_holdout": {
+    "NMAE": 0.7890329229286603,
+    "MAE": 2808.1230932137687,
+    "RMSE": 13297.086093152113,
+    "R2": 0.8103810363619129
+  },
+  "locked_holdout_mae_95pct_ci": [
+    2607.0263439381893,
+    3009.536653424435
+  ],
+  "versions": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "lightgbm": "4.7.0",
+    "xgboost": "3.4.1",
+    "catboost": "1.2.10",
+    "optuna": "5.0.0",
+    "matplotlib": "3.11.2",
+    "nbformat": "5.11.1",
+    "nbclient": "0.11.0",
+    "ipykernel": "7.4.0"
+  },
+  "data_sha256": {
+    "train.csv": "fa62c4250acb525d61feae7f53ef7256f58ee38860cc7a172ccc63016a4e314e",
+    "test.csv": "12c8ae5c09353b9c644d858f2cc6115a606336a6b3e0fac7a55e5f903300caef",
+    "datacard.txt": "caba9ef45ae9e6e004cf788ac896b26a2b7333c66573363beb135d65bc7b18c5"
+  },
+  "output_rows": 25889,
+  "row_index_base": 0,
+  "prediction_file": "submissions/task3_predictions_detail.csv",
+  "target_facts": {
+    "zero_fraction": 0.4812403846153846,
+    "skewness": 4.170020975925112,
+    "max_target": 300000.0,
+    "count_at_max": 15,
+    "top_1pct_revenue_share": 0.19008244529445223
+  },
+  "candidate_specs": {
+    "dummy_median": {
+      "kind": "dummy",
+      "engineered": false,
+      "params": {},
+      "transform": null,
+      "upper_clip": false
+    },
+    "ridge_raw": {
+      "kind": "ridge",
+      "engineered": false,
+      "params": {},
+      "transform": null,
+      "upper_clip": false
+    },
+    "elasticnet_raw": {
+      "kind": "elastic",
+      "engineered": false,
+      "params": {},
+      "transform": null,
+      "upper_clip": false
+    },
+    "random_forest_raw": {
+      "kind": "rf",
+      "engineered": false,
+      "params": {},
+      "transform": null,
+      "upper_clip": false
+    },
+    "extra_trees_raw": {
+      "kind": "et",
+      "engineered": false,
+      "params": {},
+      "transform": null,
+      "upper_clip": false
+    },
+    "lightgbm_raw_l1": {
+      "kind": "lgb",
+      "engineered": false,
+      "params": {
+        "objective": "regression_l1"
+      },
+      "transform": null,
+      "upper_clip": false
+    },
+    "xgboost_raw_l1": {
+      "kind": "xgb",
+      "engineered": false,
+      "params": {},
+      "transform": null,
+      "upper_clip": false
+    },
+    "catboost_raw_l1": {
+      "kind": "cat",
+      "engineered": false,
+      "params": {},
+      "transform": null,
+      "upper_clip": false
+    },
+    "lightgbm_fe_l1": {
+      "kind": "lgb",
+      "engineered": true,
+      "params": {
+        "objective": "regression_l1"
+      },
+      "transform": null,
+      "upper_clip": false
+    },
+    "catboost_fe_l1": {
+      "kind": "cat",
+      "engineered": true,
+      "params": {},
+      "transform": null,
+      "upper_clip": false
+    },
+    "lightgbm_fe_log_l1": {
+      "kind": "lgb",
+      "engineered": true,
+      "params": {
+        "objective": "regression_l1"
+      },
+      "transform": "log1p",
+      "upper_clip": false
+    },
+    "lightgbm_fe_log_l2": {
+      "kind": "lgb",
+      "engineered": true,
+      "params": {
+        "objective": "regression"
+      },
+      "transform": "log1p",
+      "upper_clip": false
+    },
+    "lightgbm_fe_tweedie": {
+      "kind": "lgb",
+      "engineered": true,
+      "params": {
+        "objective": "tweedie",
+        "tweedie_variance_power": 1.4
+      },
+      "transform": null,
+      "upper_clip": false
+    },
+    "lightgbm_fe_quantile50": {
+      "kind": "lgb",
+      "engineered": true,
+      "params": {
+        "objective": "quantile",
+        "alpha": 0.5
+      },
+      "transform": null,
+      "upper_clip": false
+    },
+    "two_stage_gamma": {
+      "kind": "two_gamma",
+      "engineered": true,
+      "params": {},
+      "transform": null,
+      "upper_clip": false
+    },
+    "two_stage_mixture_median": {
+      "kind": "two_median",
+      "engineered": true,
+      "params": {},
+      "transform": null,
+      "upper_clip": false
+    },
+    "lightgbm_fe_l1_upper_clip": {
+      "kind": "lgb",
+      "engineered": true,
+      "params": {
+        "objective": "regression_l1"
+      },
+      "transform": null,
+      "upper_clip": true
+    },
+    "lightgbm_optuna_l1": {
+      "kind": "lgb",
+      "engineered": true,
+      "params": {
+        "objective": "regression_l1",
+        "n_estimators": 2200,
+        "learning_rate": 0.02444601900891129,
+        "num_leaves": 61,
+        "min_child_samples": 73,
+        "colsample_bytree": 0.8708656134137285,
+        "subsample": 0.7595440844820583,
+        "reg_alpha": 0.0011853452105852257,
+        "reg_lambda": 0.026563516033398103,
+        "max_bin": 511
+      },
+      "transform": null,
+      "upper_clip": false
+    }
+  }
+}
